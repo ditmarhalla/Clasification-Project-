@@ -18,7 +18,6 @@ class Vector:
         self.vector = vector #sets the arrays as numpy array with the vector values
         self.value = value #value i.e. grass, trees, rock,...
 
-    #Ditmar
     #computes the norm
     def euclidian_distance(self,point):
         distance = 0
@@ -27,14 +26,12 @@ class Vector:
 
         return distance
 
-    #Ditmar
     # determines the nearest vector and stores it with the value of the vector in an tuple
     def set_value(self,trained):
         distance = [(train.value,self.euclidian_distance(train)) for train in trained]
         distance.sort(key=lambda tup: tup[1]) #sorts the tuple
         self.value = distance[0][0] #sets the value to the nearest vector
 
-#Ditmar
 #converts file to a string of numbers
 def file_to_string(name,numbervec):
     sstring = []
@@ -54,7 +51,6 @@ def file_to_string(name,numbervec):
 
     return sstring
 
-#Ditmar
 #converts string to a list of instances of vectors
 def string_to_list(sstring,non = False):
     vector_list = [] #list of class instances
@@ -76,7 +72,6 @@ def string_to_list(sstring,non = False):
     return vector_list
 
 
-#Eric
 # converts seconds in (days, hours, minutes and seconds) a string
 def convert(seconds):
     days = (seconds-seconds%24)/24
@@ -88,14 +83,12 @@ def convert(seconds):
     return "%d:%02d:%02d:%02d" % (days,hour, minutes, seconds)
 
 
-#Eric
 def elimdim(data,dimension):
     for element in data:
         element.vector = element.vector[:dimension-1]+element.vector[dimension:]
 
 
 
-#Eric
 #creates a list with length n of random integers between 0 & leng,
 # if n = leng, the random list is 0,1,...,n
 def randomindexing(maximum,n):
@@ -107,7 +100,6 @@ def randomindexing(maximum,n):
 
 
 
-#Eric
 #determines for all untrained data indexed by random_sequence the nearest value
 def data_analysis(trained_data,untraind_data,random_sequence):
     t3 = time.time()
@@ -117,7 +109,6 @@ def data_analysis(trained_data,untraind_data,random_sequence):
 
 
 
-#Eric
 #determines the Percentag of correct values using 2 data sets and the random series
 def datapercentage(original,data2,random_sequence):
     valid_counter = 0
