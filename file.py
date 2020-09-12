@@ -7,7 +7,6 @@ def file_to_list(name):
             count += 1                      # this is a counter of how many times the program runs. As a result counts the number of lines
             line = line.strip("\n")         # removes enters
             line = line.strip("\t")         # removes extra spaces (Usualy after the 6th variable)
-            #line = int(line) ask Mr.Ibrahim why this does not work
             vector.append(line.split())          # after it is done we inseart all the lists into the list called "A"
         else:                               # this brakes the loop after i is no longer smaller then the specified times we want the program to run
             break
