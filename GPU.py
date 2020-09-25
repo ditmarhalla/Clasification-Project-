@@ -52,3 +52,5 @@ dataset_untrained = file_to_list("untrained.txt")
 print(class_untrained_vectors(dataset_trained,dataset_untrained[0:number_of_vectors_untrained])) # we use slices to call the munber of "untrained" vectors we would like to use
 stop = time.time()
 print('Time: ', stop - start)
+
+input()
