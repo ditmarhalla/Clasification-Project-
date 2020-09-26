@@ -9,6 +9,8 @@ def file_to_list(name):
         list_of_data.append(line)                                      # inseart the converted line into the list we created "list_of_data"
     file.close()                                                       #close the file
     return list_of_data
+
+
 #########################################################################################################################
 # Calculating the distance
 
@@ -17,6 +19,7 @@ def euclidian_distance(vector1, vector2):                              # The two
     for i in range(len(vector1)):                                      # The loop will run till the length of "vector 1"
         value += abs(int(vector1[i]) - int(vector2[i]))                # distance calculation
     return value
+
 
 #########################################################################################################################
 # Calculating the untrained vectors class
@@ -32,6 +35,9 @@ def find_class(traned_data,  untrained_vector):                        # This fu
     untrained_vector = untrained_vector + tuple(min_val[1])            # After finding the best distance we assigne the class of that distnace to the "untrained_vector"
     return untrained_vector
 
+
+########################################################################################################################
+# Finding the class of all the untrained vectors
 def class_untrained_vectors(trained_data,untrained_data):              # This function recalls the untrained vectors to find the class (7th value)
     list_data_untrained = []                                           # The list where we will store all the untrained vector after we get the class
     for untrained_vector in untrained_data:                            # Run through the loop for all the untrained vectors
@@ -39,11 +45,36 @@ def class_untrained_vectors(trained_data,untrained_data):              # This fu
         list_data_untrained.append(vector)                             # Appends the untrained vector with the class in the list
     return list_data_untrained
 
+
+########################################################################################################################
+# Remove dimensions to make the algorithm faster
+def remove_dimension(data,dimension):
+    vectors = file_to_list(data)
+    new_data = []
+    for vector in vectors:
+        vector = vector[:dimension-1]+ vector[dimension:]
+        new_data.append(vector)
+    return new_data
+
+
+########################################################################################################################
+# See the acuracy of the algorithm when we remove the dimension
+def algorithm_accuracy(original_data, reduced_data):
+    corresponding = 0
+    not_corresponding = 0
+    for data in list_data_untrained:
+        if dsdsd == adasd:
+            corresponding += 1
+        else:
+            not_corresponding += 1
+
+
 start = time.time()
 # test run with some data
-number_of_vectors_untrained = 1000                                      # We use slices to caluclate only the number we would like
+number_of_vectors_untrained = 1000                                     # We use slices to caluclate only the number we would like
 dataset_trained = file_to_list("trained.txt")                           # Open the untrained data file
-dataset_untrained = file_to_list("untrained.txt")
-print(class_untrained_vectors(dataset_trained,dataset_untrained[0:number_of_vectors_untrained])) # we use slices to call the munber of "untrained" vectors we would like to use
+#dataset_untrained = file_to_list("untrained.txt")
+#print(class_untrained_vectors(dataset_trained,dataset_untrained[0:number_of_vectors_untrained])) # we use slices to call the munber of "untrained" vectors we would like to use
 stop = time.time()
-print('Time: ', stop - start)
+#print('Time: ', stop - start)
+remove_dimension("trained.txt",2)
