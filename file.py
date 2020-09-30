@@ -73,26 +73,28 @@ def remove_dimension(data,dimension):                                   # Romves
 
 
 ########################################################################################################################
-# See the acuracy of the algorithm when we remove the dimension
-#def algorithm_accuracy(original_data, reduced_data):
- #   corresponding = 0
-  #  not_corresponding = 0
-   # for data in list_data_untrained:
-    #    if dsdsd == adasd:
-     #       corresponding += 1
-      #  else:
-       #     not_corresponding += 1
-
+# See the accuracy of the algorithm when we remove the dimension
+def algorithm_accuracy(original_data, reduced_data):
+    corresponding = 0
+    not_corresponding = 0
+    for i in range (len(original_data)):
+        if original_data[i][6] == reduced_data[i][5]:
+            corresponding += 1
+        else:
+            not_corresponding += 1
+    return  ((corresponding*100)/(corresponding+not_corresponding))
 
 start = time.time()
 # test run with some data
 number_of_vectors_untrained = 1000                                     # We use slices to caluclate only the number we would like
-#dataset_trained = file_to_list("trained.txt")                           # Open the untrained data file
-#dataset_untrained = file_to_list("untrained.txt")
-#print(class_untrained_vectors(dataset_trained,dataset_untrained[0:number_of_vectors_untrained])) # we use slices to call the munber of "untrained" vectors we would like to use
+dataset_trained = file_to_list("trained.txt")                           # Open the untrained data file
+dataset_untrained = file_to_list("untrained.txt")
+original = class_untrained_vectors(dataset_trained,dataset_untrained[0:number_of_vectors_untrained]) # we use slices to call the munber of "untrained" vectors we would like to use
 trained_data = remove_dimension("trained.txt",2)
 untrained_data = remove_dimension("untrained.txt",2)
-print(class_untrained_vectors(trained_data,untrained_data[0:number_of_vectors_untrained]))
+reduced = class_untrained_vectors(trained_data,untrained_data[0:number_of_vectors_untrained])
+
+print(algorithm_accuracy(original,reduced))
 
 stop = time.time()
 print('Time: ', stop - start)
