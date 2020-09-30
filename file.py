@@ -41,13 +41,9 @@ def find_class(traned_data,  untrained_vector):                         # This f
     for i in range(len (distnace_vector)):                              # Run through a loop for how many data we hav in "distnace_vector"
         if min_val[0] > (distnace_vector[i][0]):                        # Compare if the value we have si smaller then the next one
             min_val = distnace_vector[i]                                # if this is true we reassigne it and run the loop again. This will give us the smallest distnace possible and the class
-            #print("minval",min_val)
-    #print(type(untrained_vector))
-    #print(type(min_val[1]))
     untrained_vector = list(untrained_vector)
     untrained_vector.append(min_val[1])             # After finding the best distance we assigne the class of that distnace to the "untrained_vector"
     untrained_vector = tuple(untrained_vector)
-    #print ("vectorclass",untrained_vector)
     return untrained_vector
 
 
@@ -98,3 +94,5 @@ print(algorithm_accuracy(original,reduced))
 
 stop = time.time()
 print('Time: ', stop - start)
+
+input()
