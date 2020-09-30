@@ -29,7 +29,6 @@ def find_class(traned_data,  untrained_vector):                         # This f
         if len(vectors) == 7:
             distnace = euclidian_distance(vectors[0:5], untrained_vector)  # and calculate the distance using the fuction we created "Euclidian_distance"
             distnace_vector.append((distnace,tuple(vectors[6])))               # Then adds the "distnace" we found and "class" so that we can use later for comparason
-
         elif len(vectors) == 6:
             distnace = euclidian_distance(vectors[0:4],untrained_vector)
             distnace_vector.append((distnace, vectors[5]))              ########## distance is type(int) while vector is type(tuple)
