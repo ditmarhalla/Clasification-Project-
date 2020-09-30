@@ -15,7 +15,7 @@ def file_to_list(name):
 # Calculating the distance
 
 def euclidian_distance(vector1, vector2):                              # The two vectors we want to compare
-    value = 0                                                          # we start the variable to calculate the sum 
+    value = 0                                                          # we start the variable to calculate the sum
     for i in range(len(vector1)):                                      # The loop will run till the length of "vector 1"
         value += abs(int(vector1[i]) - int(vector2[i]))                # distance calculation
     return value
@@ -23,11 +23,11 @@ def euclidian_distance(vector1, vector2):                              # The two
 
 #########################################################################################################################
 # Calculating the untrained vectors class
-def find_class(traned_data,  untrained_vector):                        # This function recalls the euclidian distance in order to find the class of the untrained vector
+def find_class(traned_data,  untrained_vector, dimension):                        # This function recalls the euclidian distance in order to find the class of the untrained vector
     distnace_vector = []                                               # Empty list we will use to store the distance and class
     for vectors in traned_data:                                        # Loop that will run through all the first data (trained) and second (untrained)
-        distnace = euclidian_distance(vectors[0:5], untrained_vector)  # and calculate the distance using the fuction we created "Euclidian_distance"
-        distnace_vector.append((distnace,vectors[6]))                  # Then adds the "distnace" we found and "class" so that we can use later for comparason
+        distnace = euclidian_distance(vectors[0:dimension - 1], untrained_vector)  # and calculate the distance using the fuction we created "Euclidian_distance"
+        distnace_vector.append((distnace,vectors[dimension]))                  # Then adds the "distnace" we found and "class" so that we can use later for comparason
     min_val = distnace_vector[0]                                       # Create a minimal value to use and find the class of our "untrained_vector". We define it as the first array in the "distance_vector" list
     for i in range(len (distnace_vector)):                             # Run through a loop for how many data we hav in "distnace_vector"
         if min_val[0] > (distnace_vector[i][0]):                       # Compare if the value we have si smaller then the next one
@@ -38,10 +38,10 @@ def find_class(traned_data,  untrained_vector):                        # This fu
 
 ########################################################################################################################
 # Finding the class of all the untrained vectors
-def class_untrained_vectors(trained_data,untrained_data):              # This function recalls the untrained vectors to find the class (7th value)
+def class_untrained_vectors(trained_data,untrained_data,dimension):              # This function recalls the untrained vectors to find the class (7th value)
     list_data_untrained = []                                           # The list where we will store all the untrained vector after we get the class
     for untrained_vector in untrained_data:                            # Run through the loop for all the untrained vectors
-        vector = find_class(trained_data, untrained_vector)            # Recalles the 3rd fucntion "find_class"
+        vector = find_class(trained_data, untrained_vector,dimension)            # Recalles the 3rd fucntion "find_class"
         list_data_untrained.append(vector)                             # Appends the untrained vector with the class in the list
     return list_data_untrained
 
@@ -59,22 +59,26 @@ def remove_dimension(data,dimension):
 
 ########################################################################################################################
 # See the acuracy of the algorithm when we remove the dimension
-def algorithm_accuracy(original_data, reduced_data):
-    corresponding = 0
-    not_corresponding = 0
-    for data in list_data_untrained:
-        if dsdsd == adasd:
-            corresponding += 1
-        else:
-            not_corresponding += 1
+#def algorithm_accuracy(original_data, reduced_data):
+ #   corresponding = 0
+  #  not_corresponding = 0
+   # for data in list_data_untrained:
+    #    if dsdsd == adasd:
+     #       corresponding += 1
+      #  else:
+       #     not_corresponding += 1
 
 
 start = time.time()
 # test run with some data
-number_of_vectors_untrained = 1000                                     # We use slices to caluclate only the number we would like
-dataset_trained = file_to_list("trained.txt")                           # Open the untrained data file
+number_of_vectors_untrained = 10                                     # We use slices to caluclate only the number we would like
+#dataset_trained = file_to_list("trained.txt")                           # Open the untrained data file
 #dataset_untrained = file_to_list("untrained.txt")
 #print(class_untrained_vectors(dataset_trained,dataset_untrained[0:number_of_vectors_untrained])) # we use slices to call the munber of "untrained" vectors we would like to use
-stop = time.time()
 #print('Time: ', stop - start)
-remove_dimension("trained.txt",2)
+trained_data = remove_dimension("trained.txt",2)
+untrained_data = remove_dimension("untrained.txt",2)
+print(class_untrained_vectors(trained_data,untrained_data[0:10],4))
+
+stop = time.time()
+print('Time: ', stop - start)
