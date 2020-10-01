@@ -100,7 +100,7 @@ for i in range(0, 6):
     trained_data = remove_dimension("trained.txt", i)
     untrained_data = remove_dimension("untrained.txt", i)
     reduced = class_untrained_vectors(trained_data, untrained_data[0:number_of_vectors_untrained])
-    print("Acuracy when deleting the", i+1, " dimension: ",algorithm_accuracy(original, reduced))
+    print("Accuracy when deleting the", i+1, " dimension: ",algorithm_accuracy(original, reduced))
 
     stop1 = time.time()
     print('Time it takes to calculate the ',i+1,'dimension', stop1 - start)
