@@ -106,3 +106,5 @@ for i in range(0, 6):
     print('Time it takes to calculate the ', i+1, 'dimension', round(stop1 - start,1),"seconds")
 stop2 = time.time()
 print('Total time to run the program: ', round(stop2 - start,1),"seconds")
+
+input("Finished")
