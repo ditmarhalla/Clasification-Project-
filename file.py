@@ -40,9 +40,9 @@ def find_class(trained_vector, untrained_vector):                       # This f
             break
     min_val = distance_vector[0]                                        # Create a minimal value to use and find the class of our "untrained_vector". We define it as the first array in the "distance_vector" list
     for n in range(len(distance_vector)):                               # Run through a loop for how many data we hav in "distance_vector"
-        if min_val[0] > (distance_vector[n][0]):                        # Compare if the value we have si smaller then the next one
+        if min_val[0] > (distance_vector[n][0]):                        # Compare if the value we have is smaller then the next one
             min_val = distance_vector[n]                                # if this is true we re-assign it and run the loop again. This will give us the smallest distance possible and the class
-    untrained_vector = list(untrained_vector)
+    untrained_vector = list(untrained_vector)                           #######  try using t = ('A',) + t[1:] instead of conferting it to a list #########
     untrained_vector.append(min_val[1])                                 # After finding the best distance we assign the class of that distance to the "untrained_vector"
     untrained_vector = tuple(untrained_vector)
     return untrained_vector
