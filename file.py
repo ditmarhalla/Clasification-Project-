@@ -85,6 +85,8 @@ def algorithm_accuracy(original_data, reduced_data):                    # Calcul
             not_corresponding += 1
     return(corresponding*100)/(corresponding+not_corresponding)
 
+print ("The program has started calculateing")
+print ("-"*100)
 
 start = time.time()
 # test run with some data
