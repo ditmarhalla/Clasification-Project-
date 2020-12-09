@@ -90,23 +90,29 @@ print ("-"*100)
 
 start = time.time()
 # test run with some data
-number_of_vectors_untrained = 1000                                            # We use slices to calculate only the number we would like
+number_of_vectors_untrained = 100                                            # We use slices to calculate only the number we would like
 
 # loading original data
+timefile = time.time()
+
 dataset_trained = file_to_list("trained.txt")                               # Open the untrained data file
 dataset_untrained = file_to_list("untrained.txt")
 original = class_untrained_vectors(dataset_trained, dataset_untrained[0:number_of_vectors_untrained])  # we use slices to call the number of "untrained" vectors we would like to use
+stoptimefile = time.time()
+print('Time it to convert the files: ', round(stoptimefile - timefile, 1), "seconds")
+print("."*100)
 
 # Run a loop to delete the dimensions one by one and see the percentage after we remove each dimension
 for i in range(0, 6):
+    timer1 = time.time()
     trained_data = remove_dimension("trained.txt", i)
     untrained_data = remove_dimension("untrained.txt", i)
-    reduced = class_untrained_vectors(trained_data[0:number_of_vectors_untrained], untrained_data[0:number_of_vectors_untrained])
+    reduced = class_untrained_vectors(trained_data[0:number_of_vectors_untrained], untrained_data[0:number_of_vectors_untrained]) # Call the function to find the class of the untrained vectors using slices to calculate only the needed dimensions
     print("Accuracy when deleting the", i+1, " dimension: ", algorithm_accuracy(original, reduced), "%")
 
     stop1 = time.time()
-    print('Time it takes to calculate the ', i+1, 'dimension', round(stop1 - start, 1), "seconds")
+    print('Time it takes to calculate the ', i+1, 'dimension', round(stop1 - timer1, 1), "seconds")
 stop2 = time.time()
 print('Total time to run the program: ', round(stop2 - start, 1), "seconds")
 
-input("Finished")
+input("The program has ended")
