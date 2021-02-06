@@ -1,7 +1,4 @@
 import time
-class Vector:
-    def __init__(selfs,):
-
 
 # File Conversion
 def file_to_list(name):
