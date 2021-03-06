@@ -6,9 +6,9 @@ class Classification:
     vectors. Then we compare all the distances that the untrained vector has with the
     trained vectors. The one with which the untrained has the lowest distance we get
     its classification and appoint it to the untrained vector"""
-    def __init__(self, vector, the_class):
+    def __init__(self, vector_1, vector_2):
         """Initiate a classification by calling the vectors class """
-        self.vector = Vectors(vector, the_class)
+        self.vector = Vectors(vector_1, vector_2)
         self.classification = []
 
     def distance_method(self, other):
@@ -55,5 +55,5 @@ dataset_untrained = file_to_list(udata)
 
 
 classification = Classification(dataset_trained[0:5],dataset_untrained[0:5])
-
+#testtest
 print(classification.distance_method(dataset_untrained[0:5]))
