@@ -5,12 +5,10 @@ class Vectors:
 
     def euclidian_distance(self):
         value = 0                                                         # we start the variable to calculate the sum
-        vector = self.uvector
         for vector_1, vector_2 in zip(self.tvector,self.uvector): # The loop will run till the length of "vector 1"
             for value_1,value_2 in zip(vector_1,vector_2):
                 value += abs(int(value_1) - int(value_2))
-                print(value)
-            return value
+        return 
 
 
 def file_to_list(name):
@@ -28,6 +26,5 @@ udata = 'C:\\Users\\Ditmar\\\Desktop\\University\\2 Semester\\Introduction to Pr
 dataset_trained = file_to_list(tdata)                               # Open the untrained data file
 dataset_untrained = file_to_list(udata)
 
-vector = Vectors(dataset_trained[0:5],dataset_untrained[0:5])
-
-print(vector.euclidian_distance())
+vector = Vectors(dataset_trained[:10],dataset_untrained[:10])
+print("This is the distance: ",vector.euclidian_distance())
