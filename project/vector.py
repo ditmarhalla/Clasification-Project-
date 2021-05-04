@@ -12,16 +12,22 @@ class Vectors:
         self.tvector = trained_vector
         self.uvector = untrained_vector
 
-    def euclidian_distance(self):
+    def euclidian_distance(self,dimension):
         """Method to calculate the difference in value between
         elements of two vectors.
         value 1 and value 2 are the elements of traind and untrian
-        vectors. Element n with element n.
+        vectors acordingly. This function gets a vaule 'Distance'
+        That is the diference of n-th element in trained with the n-th
+        element in untrained that gets added to the value
         The 'value' we get is the distance"""
         value = 0                                                   # we start the variable to calculate the sum
-        for value_1, value_2 in zip(self.tvector,self.uvector):   # The loop will run till the length of "vector 1"
+        for value_1, value_2 in zip(self.tvector[:dimension],self.uvector[:dimension]):   # The loop will run till the length of "vector 1"
             value += abs(int(value_1) - int(value_2))
-            return value
+        return value
+
+
+
+""" Test
 
 def file_to_list(name):
     list_of_data = []                                                  # Create empty list to put the data
@@ -32,13 +38,14 @@ def file_to_list(name):
     file.close()                                                       # close the file
     return list_of_data
 
-
 tdata ='C:\\Users\\Ditmar\\Desktop\\University\\2 Semester\\Introduction to Programing\\Clasification-Project-\\trained.txt'
 udata = 'C:\\Users\\Ditmar\\\Desktop\\University\\2 Semester\\Introduction to Programing\\Clasification-Project-\\untrained.txt'
 
 dataset_trained = file_to_list(tdata)                               # Open the untrained data file
 dataset_untrained = file_to_list(udata)
 
-for i in range (3):
-    vector = Vectors(dataset_trained[i],dataset_untrained[i])
-    print("This is the distance: ",vector.euclidian_distance())
+for i in range (5):
+    for n in range(5):
+        vector = Vectors(dataset_trained[i],dataset_untrained[n])
+        print("This is the distance: ",vector.euclidian_distance(1))
+        """
