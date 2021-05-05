@@ -1,34 +1,34 @@
-class Vectors:
-    """Class for defining defining two vectors and a method
+class Vector:
+    """Class for defining defining vector and a method
     called 'euclidian_distance' to calculate the value
+
     Parameters:
-        trained_vector :an array of data with length n
-        untrained_vector: un array of data with lenth n
+        vectro: an array of data with length n
 
-        the lenth of both vectors should be equal"""
+    Method: 
+        euclidian_distance
+    """
 
+    def __init__(self,vector):
+        self.vector = vector  
 
-    def __init__(self, trained_vector, untrained_vector):
-        self.tvector = trained_vector
-        self.uvector = untrained_vector
-
-    def euclidian_distance(self,dimension):
+    def euclidian_distance(self,other,dimension):
         """Method to calculate the difference in value between
         elements of two vectors.
-        value 1 and value 2 are the elements of traind and untrian
-        vectors acordingly. This function gets a vaule 'Distance'
-        That is the diference of n-th element in trained with the n-th
-        element in untrained that gets added to the value
-        The 'value' we get is the distance"""
-        value = 0                                                   # we start the variable to calculate the sum
-        for value_1, value_2 in zip(self.tvector[:dimension],self.uvector[:dimension]):   # The loop will run till the length of "vector 1"
+
+        Formual:
+        The formual is a simplifed version of the "Euclidian Distnace"
+
+        value += (n-th element of 1-st vector) - (n-th element of 2-st vector) 
+        """
+        value = 0
+        for value_1, value_2 in zip(self.vector[:dimension],other.vector[:dimension]):
             value += abs(int(value_1) - int(value_2))
         return value
 
 
 
 """ Test
-
 def file_to_list(name):
     list_of_data = []                                                  # Create empty list to put the data
     file = open(name,  "r")                                            # Open File to convert "name" is the file name we will recall later
@@ -44,8 +44,8 @@ udata = 'C:\\Users\\Ditmar\\\Desktop\\University\\2 Semester\\Introduction to Pr
 dataset_trained = file_to_list(tdata)                               # Open the untrained data file
 dataset_untrained = file_to_list(udata)
 
-for i in range (5):
-    for n in range(5):
-        vector = Vectors(dataset_trained[i],dataset_untrained[n])
-        print("This is the distance: ",vector.euclidian_distance(1))
-        """
+for i in range (2):
+    vector_trained = Vector(dataset_trained[i])
+    vector_untrained = Vector(dataset_untrained[i])
+    print("This is the distance: ", vector_trained.euclidian_distance(vector_untrained,6))
+    """
