@@ -39,9 +39,9 @@ def find_class(trained_vector, untrained_vector):                       # This f
         else:
             break
     min_val = distance_vector[0]                                        # Create a minimal value to use and find the class of our "untrained_vector". We define it as the first array in the "distance_vector" list
-    for i in range(len(distance_vector)):                              # Run through a loop for how many data we hav in "distance_vector"
-        if min_val[0] > (distance_vector[i][0]):                        # Compare if the value we have si smaller then the next one
-            min_val = distance_vector[i]                                # if this is true we re-assign it and run the loop again. This will give us the smallest distance possible and the class
+    for n in range(len(distance_vector)):                               # Run through a loop for how many data we hav in "distance_vector"
+        if min_val[0] > (distance_vector[n][0]):                        # Compare if the value we have si smaller then the next one
+            min_val = distance_vector[n]                                # if this is true we re-assign it and run the loop again. This will give us the smallest distance possible and the class
     untrained_vector = list(untrained_vector)
     untrained_vector.append(min_val[1])                                 # After finding the best distance we assign the class of that distance to the "untrained_vector"
     untrained_vector = tuple(untrained_vector)
@@ -88,7 +88,7 @@ def algorithm_accuracy(original_data, reduced_data):                    # Calcul
 
 start = time.time()
 # test run with some data
-number_of_vectors_untrained = 10                                            # We use slices to calculate only the number we would like
+number_of_vectors_untrained = 100                                            # We use slices to calculate only the number we would like
 
 # loading original data
 dataset_trained = file_to_list("trained.txt")                               # Open the untrained data file
@@ -100,11 +100,11 @@ for i in range(0, 6):
     trained_data = remove_dimension("trained.txt", i)
     untrained_data = remove_dimension("untrained.txt", i)
     reduced = class_untrained_vectors(trained_data[0:number_of_vectors_untrained], untrained_data[0:number_of_vectors_untrained])
-    print("Accuracy when deleting the", i+1, " dimension: ", algorithm_accuracy(original, reduced),"%")
+    print("Accuracy when deleting the", i+1, " dimension: ", algorithm_accuracy(original, reduced), "%")
 
     stop1 = time.time()
-    print('Time it takes to calculate the ', i+1, 'dimension', round(stop1 - start,1),"seconds")
+    print('Time it takes to calculate the ', i+1, 'dimension', round(stop1 - start, 1), "seconds")
 stop2 = time.time()
-print('Total time to run the program: ', round(stop2 - start,1),"seconds")
+print('Total time to run the program: ', round(stop2 - start, 1), "seconds")
 
 input("Finished")

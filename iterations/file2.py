@@ -134,14 +134,17 @@ random_sequence = randomindexing(number_of_vectors,number_of_vectors)
 
 ##############################################################
 
+tdata ='C:\\Users\\Ditmar\\Desktop\\University\\2 Semester\\Introduction to Programing\\Clasification-Project-\\trained.txt'
+udata = 'C:\\Users\\Ditmar\\\Desktop\\University\\2 Semester\\Introduction to Programing\\Clasification-Project-\\untrained.txt'
+
 #converts the trained.txt to string
 t0 = time.time()
-trainedstring = file_to_string("trained.txt",'')
+trainedstring = file_to_string(tdata,'')
 print("time for reading trained.txt",round(time.time()-t0,3),"seconds")
 
 t0 = time.time()
 #converts the untrained.txt to string
-untrainedstring = file_to_string("untrained.txt",number_of_vectors)
+untrainedstring = file_to_string(udata,number_of_vectors)
 print("time for reading untrained.txt",round(time.time()-t0,3),"seconds")
 print("-----------------")
 
