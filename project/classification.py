@@ -14,7 +14,7 @@ class Nearest_Neighbour:
         print("this is uvecotr ",self.untrained_vector.vector)
 
         distance = self.trained_vector.euclidian_distance(self.untrained_vector)
-        distance_vector.append((distance, self.trained_vector.vector[-1:]))              
+        distance_vector.append((distance, self.trained_vector.vector[-1:]))
 
         print ("this is the distance",distance)
         print("This is the vector", distance_vector)
@@ -60,4 +60,5 @@ number_untrained = 2
 
 for i in range (number_trained):
     classification = Nearest_Neighbour(dataset_trained[i],dataset_untrained[i])
+    print("This is the clasification", classification)
     print("FINAL VALUE ",classification.distance_method())
