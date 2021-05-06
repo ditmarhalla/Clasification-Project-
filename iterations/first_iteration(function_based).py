@@ -88,7 +88,7 @@ def algorithm_accuracy(original_data, reduced_data):                    # Calcul
 
 start = time.time()
 # test run with some data
-number_of_vectors_untrained = 1000                                            # We use slices to calculate only the number we would like
+number_of_vectors_untrained = 100                                            # We use slices to calculate only the number we would like
 
 # loading original data
 dataset_trained = file_to_list("trained.txt")                               # Open the untrained data file
