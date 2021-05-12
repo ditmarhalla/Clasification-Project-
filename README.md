@@ -9,4 +9,4 @@
 - But when we try and **classify the untraind vectors** than we see the problem. It takes **47.9 seconds** just to classify **1000 untrained vectors**.
 - That is why we define a fuction that removes the same value from each vector and also check that the accuracy is still intact. This will make the program run faster as it has less calculations
 
-- Then we implement the **NumPy** library and also **object oriented programing** This makes the program run much faster. So fast that we dont need to remove any dimanesions. But we see that loading all the array of **3.4 million** takes a long time. Around 11 seconds. But that is not a problem since the calculation is so fast that it shows up as **0.0 seconds**.
+- Then we implement the **NumPy** library and also **object oriented programing** This makes the program run much faster. So fast that we dont need to remove any dimanesions. But we see that loading all the array of **1.4 million** takes a long time. Around 10 seconds. But that is not a problem since the calculation is so fast that it shows up as **1.5 seconds**.
