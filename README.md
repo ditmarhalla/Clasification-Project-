@@ -1,5 +1,5 @@
 # Clasification-Project
-
+### *This is a project I buid from scrach. I was only proveded the two text files of trained and untrained data.*
 **Python project intended as an introduction into machine learning and classification (Part of the University Curuculum)**
 
 
