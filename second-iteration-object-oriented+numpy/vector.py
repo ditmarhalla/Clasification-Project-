@@ -23,18 +23,3 @@ class Vector:
         value = np.abs(np.subtract(other[:-1],self.vector))
         value = value.sum()
         return value
-
-"""Test
-
-trained_data ='C:\\Users\\Ditmar\\Desktop\\University\\2 Semester\\Introduction to Programing\\Clasification-Project-\\trained.txt'
-untraiend_data = 'C:\\Users\\Ditmar\\Desktop\\University\\2 Semester\\Introduction to Programing\\Clasification-Project-\\untrained.txt'
-
-trained_file = np.loadtxt(trained_data,dtype=np.int16)
-untrained_file= np.loadtxt(untraiend_data,dtype=np.int16)
-
-vector_untrained = Vector(untrained_file[0])
-vector_trained = Vector(trained_file[:5])
-
-for train in vector_trained.vector:
-    print("This is the distance: ", vector_untrained.euclidian_distance(train))
-    """
